@@ -26,6 +26,7 @@
     "babel-jest": "^24.9.0",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-preset-expo": "^7.0.0",
+    "detox": "^14.9.2",
     "eslint": "^6.4.0",
     "glob-to-regexp": "^0.4.0",
     "jest": "^24.9.0",
@@ -35,6 +36,20 @@
     "preset": "react-native"
   },
   "resolutions": {
-    "@babel/runtime": "7.6.0"
+    "@babel/runtime": "7.6.0",
+    "graceful-fs": "^4.2.3"
+  },
+  "detox": {
+    "test-runner": "jest",
+    "configurations": {
+      "ios.sim.debug": {
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/ReanimatedExample.app",
+        "build": "xcodebuild -workspace ios/ReanimatedExample.xcworkspace -scheme ReanimatedExample -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "device": {
+          "type": "iPhone X"
+        }
+      }
+    }
   }
 }
